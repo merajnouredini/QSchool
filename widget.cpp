@@ -3,7 +3,9 @@
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
 {
-    this->resize(217, 117);
+    this->resize(216, 116);
+    this->setMinimumSize(QSize(216, 116));
+    this->setMaximumSize(QSize(216, 116));
 
     submit = new QDialogButtonBox(this);
     submit->setObjectName(QStringLiteral("submit"));
@@ -29,7 +31,8 @@ Widget::Widget(QWidget *parent)
     password_label->setObjectName(QStringLiteral("label"));
     password_label->setGeometry(QRect(20, 50, 71, 21));
 
-    connect(submit, SIGNAL(rejected()), this, SLOT(on_submit_rejected()));
+    connect(submit, SIGNAL(rejected()), this, SLOT(rejected()));
+    connect(submit, SIGNAL(accepted()), this, SLOT(accepted()));
     this->setWindowTitle(QApplication::translate("user_entrance", "user_entrance", 0));
 
 }
@@ -43,7 +46,12 @@ Widget::~Widget()
     delete password_label;
 }
 
-void Widget::on_submit_rejected()
+void Widget::rejected()
 {
     this->close();
+}
+
+void Widget::accepted()
+{
+    username_field->setText("shalgham");
 }

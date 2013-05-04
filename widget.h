@@ -25,8 +25,9 @@ public:
     QLabel *password_label;
     ~Widget();
 
-public slots:
-    void on_submit_rejected();
+private slots:
+    void rejected();
+    void accepted();
 };
 
 #endif // WIDGET_H
