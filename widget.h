@@ -13,6 +13,7 @@
 #include <QWidget>
 #include <QSpacerItem>
 #include <QHBoxLayout>
+#include "about.h"
 
 class Widget : public QWidget
 {

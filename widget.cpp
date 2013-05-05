@@ -68,5 +68,5 @@ void Widget::rejected()
 
 void Widget::accepted()
 {
-    username_field->setText("shalgham");
+
 }
