@@ -14,12 +14,14 @@
 #include <QSpacerItem>
 #include <QHBoxLayout>
 #include "about.h"
+#include "schooldb.h"
 
 class Widget : public QWidget
 {
     Q_OBJECT
     
 public:
+    Schooldb *db;
     Widget(QWidget *parent = 0);
     QGridLayout *gridLayout;
     QDialogButtonBox *submit;

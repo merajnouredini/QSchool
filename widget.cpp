@@ -1,4 +1,5 @@
 #include "widget.h"
+#include <QDebug>
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
@@ -50,6 +51,8 @@ Widget::Widget(QWidget *parent)
     horizontalLayout->addItem(horizontalSpacer);
     gridLayout->addLayout(horizontalLayout, 2, 0, 1, 2);
 
+    //*******************************************************//
+    db = new Schooldb;
 }
 
 Widget::~Widget()
@@ -59,6 +62,7 @@ Widget::~Widget()
     delete username_label;
     delete password_field;
     delete password_label;
+    delete db;
 }
 
 void Widget::rejected()
@@ -68,5 +72,14 @@ void Widget::rejected()
 
 void Widget::accepted()
 {
+    db->add_user();
+    QString username;
+    QString password;
+    username = username_field->text();
+    password = password_field->text();
+    if (db->authenticate(username, password))
+        qDebug() << "login successful";
+    else
+        qDebug() << "login failed";
 
 }
