@@ -6,34 +6,49 @@ Widget::Widget(QWidget *parent)
     this->resize(216, 116);
     this->setMinimumSize(QSize(216, 116));
     this->setMaximumSize(QSize(216, 116));
+    this->setWindowTitle(QApplication::translate("user_entrance", "user_entrance", 0));
 
-    submit = new QDialogButtonBox(this);
-    submit->setObjectName(QStringLiteral("submit"));
-    submit->setGeometry(QRect(30, 80, 150, 24));
-    submit->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
+    gridLayout = new QGridLayout(this);
+    gridLayout->setSpacing(6);
+    gridLayout->setContentsMargins(11, 11, 11, 11);
+    gridLayout->setObjectName(QStringLiteral("gridLayout"));
+
+    username_label = new QLabel(this);
+    username_label->setObjectName(QStringLiteral("username_label"));
+    username_label->setText(QApplication::translate("user_entrance", "User Name", 0));
+    gridLayout->addWidget(username_label, 0, 0, 1, 1);
 
     username_field = new QLineEdit(this);
     username_field->setObjectName(QStringLiteral("username_field"));
-    username_field->setGeometry(QRect(90, 10, 113, 20));
+    gridLayout->addWidget(username_field, 0, 1, 1, 1);
+
+    password_label = new QLabel(this);
+    password_label->setObjectName(QStringLiteral("password_label"));
+    password_label->setText(QApplication::translate("user_entrance", "Passwrod", 0));
+    gridLayout->addWidget(password_label, 1, 0, 1, 1);
 
     password_field = new QLineEdit(this);
     password_field->setObjectName(QStringLiteral("password_field"));
-    password_field->setGeometry(QRect(90, 50, 113, 20));
     password_field->setEchoMode(QLineEdit::Password);
+    gridLayout->addWidget(password_field, 1, 1, 1, 1);
 
-    username_label = new QLabel(this);
-    username_label->setText(QApplication::translate("user_entrance", "User Name", 0));
-    username_label->setObjectName(QStringLiteral("username_label"));
-    username_label->setGeometry(QRect(20, 10, 71, 21));
+    horizontalLayout = new QHBoxLayout();
+    horizontalLayout->setSpacing(6);
+    horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+    horizontalSpacer_2 = new QSpacerItem(18, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+    horizontalLayout->addItem(horizontalSpacer_2);
 
-    password_label = new QLabel(this);
-    password_label->setText(QApplication::translate("user_entrance", "Passwrod", 0));
-    password_label->setObjectName(QStringLiteral("label"));
-    password_label->setGeometry(QRect(20, 50, 71, 21));
-
-    connect(submit, SIGNAL(rejected()), this, SLOT(rejected()));
+    submit = new QDialogButtonBox(this);
+    submit->setObjectName(QStringLiteral("submit"));
+    submit->setMinimumSize(QSize(141, 23));
+    submit->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
     connect(submit, SIGNAL(accepted()), this, SLOT(accepted()));
-    this->setWindowTitle(QApplication::translate("user_entrance", "user_entrance", 0));
+    connect(submit, SIGNAL(rejected()), this, SLOT(rejected()));
+
+    horizontalLayout->addWidget(submit);
+    horizontalSpacer = new QSpacerItem(18, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+    horizontalLayout->addItem(horizontalSpacer);
+    gridLayout->addLayout(horizontalLayout, 2, 0, 1, 2);
 
 }
 

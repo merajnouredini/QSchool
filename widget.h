@@ -2,15 +2,17 @@
 #define WIDGET_H
 
 #include <QWidget>
-#include <QtCore/QVariant>
-#include <QtWidgets/QAction>
-#include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QDialogButtonBox>
-#include <QtWidgets/QHeaderView>
-#include <QtWidgets/QLabel>
-#include <QtWidgets/QLineEdit>
-#include <QtWidgets/QWidget>
+#include <QVariant>
+#include <QAction>
+#include <QApplication>
+#include <QButtonGroup>
+#include <QDialogButtonBox>
+#include <QHeaderView>
+#include <QLabel>
+#include <QLineEdit>
+#include <QWidget>
+#include <QSpacerItem>
+#include <QHBoxLayout>
 
 class Widget : public QWidget
 {
@@ -18,11 +20,15 @@ class Widget : public QWidget
     
 public:
     Widget(QWidget *parent = 0);
+    QGridLayout *gridLayout;
     QDialogButtonBox *submit;
     QLineEdit *username_field;
     QLineEdit *password_field;
     QLabel *username_label;
     QLabel *password_label;
+    QHBoxLayout *horizontalLayout;
+    QSpacerItem *horizontalSpacer_2;
+    QSpacerItem *horizontalSpacer;
     ~Widget();
 
 private slots:
