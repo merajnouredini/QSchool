@@ -13,10 +13,15 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        widget.cpp \
     about.cpp \
-    schooldb.cpp
+    schooldb.cpp \
+    Login.cpp \
+    mainschool.cpp \
+    mainwindow.cpp
 
-HEADERS  += widget.h \
+HEADERS  += \
     about.h \
-    schooldb.h
+    schooldb.h \
+    Login.h \
+    mainschool.h \
+    mainwindow.h

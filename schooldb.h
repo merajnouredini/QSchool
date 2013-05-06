@@ -9,6 +9,7 @@ public:
     Schooldb();
     void add_user();
     bool authenticate(const QString&, const QString&);
+    ~Schooldb();
 };
 
-#endif // SCHOOLDB_H
+#endif

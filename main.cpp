@@ -1,16 +1,14 @@
-#include "about.h"
-#include "widget.h"
+#include "mainschool.h"
 #include <QApplication>
 #include <QtSql>
 
 int main(int argc, char *argv[])
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("schooldb");
+    db.setDatabaseName("school.db");
     db.open();
     QApplication a(argc, argv);
-    Widget w;
-    w.show();
+    mainSchool w;
     
     return a.exec();
 }

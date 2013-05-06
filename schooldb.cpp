@@ -41,3 +41,8 @@ bool Schooldb::authenticate(const QString &usrname, const QString &pw)
         return false;
     }
 }
+
+Schooldb::~Schooldb()
+{
+
+}

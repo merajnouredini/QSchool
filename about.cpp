@@ -25,7 +25,6 @@ About::About()
     ABOUT->setText("This program was designed \nBy\nHooman Behnejad Fard(HoLANTu)\nAND\nMeraj Nouredini(NULL)\n\nallrights reserved");
 
 }
-
 About::~About()
 {
     delete gridLayout;
