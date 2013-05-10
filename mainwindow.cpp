@@ -1,6 +1,14 @@
 #include "mainwindow.h"
 
-mainwindow::mainwindow(int* a, int* b, int*c)
+void mainwindow::aboutme()
+{
+    qDebug("Kuft");
+    ab = new About();
+    ab->show();
+}
+
+
+mainwindow::mainwindow(int a, int b, int c)
 {
     this->resize(600, 400);
     this->setMinimumSize(QSize(600, 400));
@@ -8,8 +16,8 @@ mainwindow::mainwindow(int* a, int* b, int*c)
 
     Exit = new QAction(this);
     Exit->setObjectName(QStringLiteral("Exit"));
-    About = new QAction(this);
-    About->setObjectName(QStringLiteral("About"));
+    About_ = new QAction(this);
+    About_->setObjectName(QStringLiteral("About"));
     actionExit = new QAction(this);
     actionExit->setObjectName(QStringLiteral("actionExit"));
     actionAbout = new QAction(this);
@@ -22,12 +30,12 @@ mainwindow::mainwindow(int* a, int* b, int*c)
     gridLayout_4->setObjectName(QStringLiteral("gridLayout_4"));
     groupBox_2 = new QGroupBox(centralwidget);
     groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
-    groupBox_2->setEnabled(*a);
+    groupBox_2->setEnabled(a);
     gridLayout_2 = new QGridLayout(groupBox_2);
     gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
     groupBox_3 = new QGroupBox(groupBox_2);
     groupBox_3->setObjectName(QStringLiteral("groupBox_3"));
-    groupBox_3->setEnabled(*b);
+    groupBox_3->setEnabled(b);
     gridLayout = new QGridLayout(groupBox_3);
     gridLayout->setObjectName(QStringLiteral("gridLayout"));
     te_name = new QLabel(groupBox_3);
@@ -71,7 +79,7 @@ mainwindow::mainwindow(int* a, int* b, int*c)
     gridLayout_4->addWidget(groupBox_2, 0, 0, 1, 1);
     groupBox = new QGroupBox(centralwidget);
     groupBox->setObjectName(QStringLiteral("groupBox"));
-    groupBox->setEnabled(*c);
+    groupBox->setEnabled(c);
     gridLayout_3 = new QGridLayout(groupBox);
     gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
     Teachers = new QTableView(groupBox);
@@ -120,11 +128,10 @@ mainwindow::mainwindow(int* a, int* b, int*c)
     menuFile->addAction(actionLogout);
     menuFile->addAction(actionExit);
     menuHelp->addAction(actionAbout);
-    connect(actionExit, SIGNAL(triggered()), this, SLOT(close()));
     this->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
     this->setStatusTip(QApplication::translate("MainWindow", "Main Window", 0));
     Exit->setText(QApplication::translate("MainWindow", "exit", 0));
-    About->setText(QApplication::translate("MainWindow", "about", 0));
+    About_->setText(QApplication::translate("MainWindow", "about", 0));
     actionExit->setText(QApplication::translate("MainWindow", "Exit", 0));
     actionExit->setStatusTip(QApplication::translate("MainWindow", "Exit Aplication", 0));
     actionExit->setShortcut(QApplication::translate("MainWindow", "Ctrl+Q", 0));
@@ -149,9 +156,12 @@ mainwindow::mainwindow(int* a, int* b, int*c)
     addteacher->setText(QApplication::translate("MainWindow", "Add", 0));
     menuFile->setTitle(QApplication::translate("MainWindow", "File", 0));
     menuHelp->setTitle(QApplication::translate("MainWindow", "Help", 0));
+    this->connect(actionExit, SIGNAL(triggered()), this, SLOT(close()));
+    this->connect(actionAbout, SIGNAL(triggered()), this, SLOT(aboutme()));
 }
 
 mainwindow::~mainwindow()
 {
 
 }
+

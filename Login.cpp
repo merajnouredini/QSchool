@@ -1,8 +1,7 @@
 #include "Login.h"
 #include <QDebug>
 
-Login::Login(QWidget *parent)
-    : QWidget(parent)
+Login::Login(QWidget *parent): QWidget(parent)
 {
     this->resize(216, 116);
     this->setMinimumSize(QSize(216, 116));
@@ -63,6 +62,7 @@ Login::~Login()
     delete password_field;
     delete password_label;
     delete db;
+    delete mwindow;
 }
 
 void Login::rejected()
@@ -80,7 +80,9 @@ void Login::accepted()
     if (db->authenticate(username, password))
     {
         qDebug() << "login successful";
-
+        mwindow = new mainwindow(1,1,0);
+        mwindow->show();
+        this->close();
     }
 
     else

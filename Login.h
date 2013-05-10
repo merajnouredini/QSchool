@@ -13,13 +13,16 @@
 #include <QWidget>
 #include <QSpacerItem>
 #include <QHBoxLayout>
+#include <QMainWindow>
 #include "schooldb.h"
+#include "mainwindow.h"
 
 class Login : public QWidget
 {
     Q_OBJECT
     
 public:
+    mainwindow *mwindow;
     Schooldb *db;
     Login(QWidget *parent = 0);
     QGridLayout *gridLayout;

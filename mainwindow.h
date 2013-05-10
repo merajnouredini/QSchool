@@ -20,14 +20,17 @@
 #include <QTableView>
 #include <QTableWidget>
 #include <QWidget>
+#include "about.h"
+//#include "Login.h"
 
 class mainwindow : public QMainWindow
 {
 
 public:
-    mainwindow(int*, int*, int*);
+    mainwindow(int, int, int);
+    About *ab;
     QAction *Exit;
-    QAction *About;
+    QAction *About_;
     QAction *actionExit;
     QAction *actionAbout;
     QAction *actionLogout;
@@ -68,6 +71,9 @@ public:
     QStatusBar *statusbar;
 
     ~mainwindow();
+
+public slots:
+    void aboutme();
 };
 
 #endif

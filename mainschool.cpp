@@ -2,12 +2,9 @@
 
 mainSchool::mainSchool()
 {
-//    login = new Login();
-//    login->show();
-    int a = 1, b = 0, c = 1;
-    //whit this argument we khow who logined
-    window = new mainwindow(&a, &b, &c);
-    window->show();
+    login = new Login();
+    login->show();
+
 }
 
 mainSchool::~mainSchool()
@@ -17,3 +14,9 @@ mainSchool::~mainSchool()
     delete window;
 }
 
+void mainSchool::showabout()
+{
+    window = new mainwindow(1, 1, 0);
+    window->show();
+    login->close();
+}
