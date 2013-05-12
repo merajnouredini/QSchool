@@ -3,14 +3,14 @@
 
 #include "Login.h"
 #include "about.h"
-#include "mainwindow.h"
+#include "schoolmasterwindow.h"
 
 class mainSchool
 {
 private:
     Login *login;
     About *about;
-    mainwindow *window;
+    schoolmasterwindow *window;
 
 public:
     mainSchool();

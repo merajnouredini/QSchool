@@ -1,5 +1,5 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef TEACHERSWINDOW_H
+#define TEACHERSWINDOW_H
 
 #include <QVariant>
 #include <QAction>
@@ -25,7 +25,7 @@
 
 class mainwindow : public QMainWindow
 {
-
+     Q_OBJECT
 public:
     mainwindow(int, int, int);
     About *ab;
@@ -46,7 +46,7 @@ public:
     QLineEdit *stfamily;
     QSpacerItem *horizontalSpacer_6;
     QPushButton *add;
-    QTableWidget *studenttable;
+    QTableView *studenttable;
     QLabel *stuname;
     QLineEdit *lineEdit;
     QLabel *type;
@@ -73,7 +73,7 @@ public:
     ~mainwindow();
 
 public slots:
-    void aboutme();
+    void on_actionAbout_triggered();
 };
 
 #endif

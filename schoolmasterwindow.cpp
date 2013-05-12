@@ -1,6 +1,6 @@
-#include "mainwindow.h"
+#include "schoolmasterwindow.h"
 
-void mainwindow::aboutme()
+void schoolmasterwindow::on_actionAbout_triggered()
 {
     qDebug("Kuft");
     ab = new About();
@@ -8,7 +8,7 @@ void mainwindow::aboutme()
 }
 
 
-mainwindow::mainwindow(int a, int b, int c)
+schoolmasterwindow::schoolmasterwindow(int a, int b, int c)
 {
     this->resize(600, 400);
     this->setMinimumSize(QSize(600, 400));
@@ -156,12 +156,64 @@ mainwindow::mainwindow(int a, int b, int c)
     addteacher->setText(QApplication::translate("MainWindow", "Add", 0));
     menuFile->setTitle(QApplication::translate("MainWindow", "File", 0));
     menuHelp->setTitle(QApplication::translate("MainWindow", "Help", 0));
+    db = new Schooldb;
     this->connect(actionExit, SIGNAL(triggered()), this, SLOT(close()));
-    this->connect(actionAbout, SIGNAL(triggered()), this, SLOT(aboutme()));
+    this->connect(actionAbout, SIGNAL(triggered()), this, SLOT(on_actionAbout_triggered()));
+    this->connect(add, SIGNAL(clicked()), this, SLOT(on_add_clicked()));
 }
 
-mainwindow::~mainwindow()
+void schoolmasterwindow::on_add_clicked()
 {
+    QString fname;
+    QString lname;
+    fname = stname->text();
+    lname = stfamily->text();
+    db->add_students(fname, lname);
+}
 
+schoolmasterwindow::~schoolmasterwindow()
+{
+    delete db;
+    delete ab;
+    delete Exit;
+    delete About_;
+    delete actionExit;
+    delete actionAbout;
+    delete actionLogout;
+    delete centralwidget;
+    delete gridLayout_4;
+    delete groupBox_2;
+    delete gridLayout_2;
+    delete groupBox_3;
+    delete gridLayout;
+    delete te_name;
+    delete stname;
+    delete te_family;
+    delete stfamily;
+    delete horizontalSpacer_6;
+    delete add;
+    delete studenttable;
+    delete stuname;
+    delete lineEdit;
+    delete type;
+    delete type_2;
+    delete submit;
+    delete horizontalSpacer_3;
+    delete groupBox;
+    delete gridLayout_3;
+    delete Teachers;
+    delete tename;
+    delete teacher_name;
+    delete horizontalSpacer;
+    delete tefamily;
+    delete treacher_family;
+    delete horizontalSpacer_2;
+    delete access;
+    delete accesscombo;
+    delete addteacher;
+    delete menubar;
+    delete menuFile;
+    delete menuHelp;
+    delete statusbar;
 }
 

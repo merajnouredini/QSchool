@@ -42,7 +42,20 @@ bool Schooldb::authenticate(const QString &usrname, const QString &pw)
     }
 }
 
-Schooldb::~Schooldb()
+void Schooldb::add_students( QString& fname,  QString& lname)
 {
 
+    QSqlQuery *query = new QSqlQuery;
+    query->prepare("INSERT INTO student VALUES(:fname,:lname,'','','','')");
+    qDebug() << query->lastError();
+    query->bindValue(":fname", fname);
+    query->bindValue(":lname", lname);
+    query->exec();
+    qDebug() << query->lastError();
+    qDebug() << "Student added!";
+    delete query;
+}
+
+Schooldb::~Schooldb()
+{
 }

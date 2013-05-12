@@ -16,7 +16,7 @@ mainSchool::~mainSchool()
 
 void mainSchool::showabout()
 {
-    window = new mainwindow(1, 1, 0);
+    window = new schoolmasterwindow(1, 1, 0);
     window->show();
     login->close();
 }

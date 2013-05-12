@@ -15,14 +15,14 @@
 #include <QHBoxLayout>
 #include <QMainWindow>
 #include "schooldb.h"
-#include "mainwindow.h"
+#include "schoolmasterwindow.h"
 
 class Login : public QWidget
 {
     Q_OBJECT
     
 public:
-    mainwindow *mwindow;
+    schoolmasterwindow *mwindow;
     Schooldb *db;
     Login(QWidget *parent = 0);
     QGridLayout *gridLayout;

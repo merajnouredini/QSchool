@@ -17,11 +17,12 @@ SOURCES += main.cpp\
     schooldb.cpp \
     Login.cpp \
     mainschool.cpp \
-    mainwindow.cpp
+    teacherswindow.cpp \
+    schoolmasterwindow.cpp
 
-HEADERS  += \
-    about.h \
+HEADERS  += about.h \
     schooldb.h \
     Login.h \
     mainschool.h \
-    mainwindow.h
+    teacherswindow.h \
+    schoolmasterwindow.h
