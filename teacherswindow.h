@@ -17,68 +17,39 @@
 #include <QPushButton>
 #include <QSpacerItem>
 #include <QStatusBar>
-#include <QTableView>
 #include <QTableWidget>
 #include <QWidget>
-#include "about.h"
-#include "Login.h"
 
-class mainwindow : public QMainWindow
+class Teacherswindow: public QMainWindow
 {
-     Q_OBJECT
-public:
-    mainwindow(int, int, int);
-    About *ab;
-    Login *logn;
-    QAction *Exit;
-    QAction *About_;
+public :
+    Teacherswindow();
+    QAction *actionLogout;
     QAction *actionExit;
     QAction *actionAbout;
-    QAction *actionLogout;
     QWidget *centralwidget;
-    QGridLayout *gridLayout_4;
-    QGroupBox *groupBox_2;
-    QGridLayout *gridLayout_2;
-    QGroupBox *groupBox_3;
     QGridLayout *gridLayout;
-    QLabel *te_name;
-    QLineEdit *stname;
-    QLabel *te_family;
-    QLineEdit *stfamily;
-    QSpacerItem *horizontalSpacer_6;
-    QPushButton *add;
-    QTableView *studenttable;
-    QLabel *stuname;
-    QLineEdit *lineEdit;
-    QLabel *type;
-    QComboBox *type_2;
-    QPushButton *submit;
-    QSpacerItem *horizontalSpacer_3;
-    QGroupBox *groupBox;
-    QGridLayout *gridLayout_3;
-    QTableView *Teachers;
-    QLabel *tename;
-    QLineEdit *teacher_name;
+    QGroupBox *Teachergroupbox;
+    QGridLayout *gridLayout_2;
     QSpacerItem *horizontalSpacer;
-    QLabel *tefamily;
-    QLineEdit *treacher_family;
+    QLabel *stlabel;
     QSpacerItem *horizontalSpacer_2;
-    QLabel *access;
-    QComboBox *accesscombo;
-    QPushButton *addteacher;
+    QTableWidget *studenttable;
+    QSpacerItem *horizontalSpacer_3;
+    QComboBox *comboBox;
+    QLabel *course;
+    QLineEdit *stname;
+    QLabel *stnamelabel;
+    QPushButton *submit;
+    QLineEdit *course_2;
+    QLabel *scorelabel;
+    QLineEdit *stfamily;
+    QLabel *stfamilylabel;
     QMenuBar *menubar;
     QMenu *menuFile;
     QMenu *menuHelp;
     QStatusBar *statusbar;
-    ~mainwindow();
-
-public slots:
-//<<<<<<< HEAD:teacherswindow.h
-    void on_actionAbout_triggered();
-//=======
-    void aboutme();
-    void logout();
-//>>>>>>> connecting the logout but doesnot work:mainwindow.h
+    ~Teacherswindow();
 };
 
 #endif
