@@ -7,6 +7,12 @@ void schoolmasterwindow::on_actionAbout_triggered()
     ab->show();
 }
 
+void schoolmasterwindow::log_out()
+{
+//    log = new Login();
+//    log->show();
+//    this->close();
+}
 
 schoolmasterwindow::schoolmasterwindow(int a, int b, int c)
 {
@@ -160,6 +166,7 @@ schoolmasterwindow::schoolmasterwindow(int a, int b, int c)
     this->connect(actionExit, SIGNAL(triggered()), this, SLOT(close()));
     this->connect(actionAbout, SIGNAL(triggered()), this, SLOT(on_actionAbout_triggered()));
     this->connect(add, SIGNAL(clicked()), this, SLOT(on_add_clicked()));
+    this->connect(actionLogout, SIGNAL(triggered()), this, SLOT(log_out()));
 }
 
 void schoolmasterwindow::on_add_clicked()

@@ -7,6 +7,13 @@ void mainwindow::on_actionAbout_triggered()
     ab->show();
 }
 
+void mainwindow::logout()
+{
+    logn = new Login();
+    logn->show();
+    this->close();
+
+}
 
 mainwindow::mainwindow(int a, int b, int c)
 {
@@ -156,12 +163,67 @@ mainwindow::mainwindow(int a, int b, int c)
     addteacher->setText(QApplication::translate("MainWindow", "Add", 0));
     menuFile->setTitle(QApplication::translate("MainWindow", "File", 0));
     menuHelp->setTitle(QApplication::translate("MainWindow", "Help", 0));
+    type_2->clear();
+    type_2->insertItems(0, QStringList()
+     << QApplication::translate("MainWindow", "\330\252\330\247\330\256\333\214\330\261", 0)
+     << QApplication::translate("MainWindow", "\330\272\333\214\330\250\330\252", 0)
+     << QApplication::translate("MainWindow", "\330\247\330\256\330\261\330\247\330\254 \330\247\330\262 \332\251\331\204\330\247\330\263", 0)
+     << QApplication::translate("MainWindow", "\330\247\330\256\330\261\330\247\330\254 \330\247\330\262 \331\205\330\257\330\261\330\263\331\207", 0)
+     << QApplication::translate("MainWindow", "\330\257\330\261 \332\257\333\214\330\261\333\214", 0)
+     << QApplication::translate("MainWindow", "\330\242\331\210\330\261\330\257\331\206 \331\210\330\263\330\247\333\214\331\204 \331\206\330\247\331\205\330\261\330\250\331\210\330\267", 0)
+    );
     this->connect(actionExit, SIGNAL(triggered()), this, SLOT(close()));
+//<<<<<<< HEAD:teacherswindow.cpp
     this->connect(actionAbout, SIGNAL(triggered()), this, SLOT(on_actionAbout_triggered()));
+//=======
+    this->connect(actionAbout, SIGNAL(triggered()), this, SLOT(aboutme()));
+    this->connect(actionLogout, SIGNAL(triggered()), this, SLOT(logout()));
+//>>>>>>> connecting the logout but doesn't work:mainwindow.cpp
 }
 
 mainwindow::~mainwindow()
 {
-
+    delete ab;
+    delete logn;
+    delete Exit;
+    delete About_;
+    delete actionExit;
+    delete actionAbout;
+    delete actionLogout;
+    delete centralwidget;
+    delete gridLayout_4;
+    delete groupBox_2;
+    delete gridLayout_2;
+    delete groupBox_3;
+    delete gridLayout;
+    delete te_name;
+    delete stname;
+    delete te_family;
+    delete stfamily;
+    delete horizontalSpacer_6;
+    delete add;
+    delete studenttable;
+    delete stuname;
+    delete lineEdit;
+    delete type;
+    delete type_2;
+    delete submit;
+    delete horizontalSpacer_3;
+    delete groupBox;
+    delete gridLayout_3;
+    delete Teachers;
+    delete tename;
+    delete teacher_name;
+    delete horizontalSpacer;
+    delete tefamily;
+    delete treacher_family;
+    delete horizontalSpacer_2;
+    delete access;
+    delete accesscombo;
+    delete addteacher;
+    delete menubar;
+    delete menuFile;
+    delete menuHelp;
+    delete statusbar;
 }
 

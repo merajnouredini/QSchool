@@ -21,7 +21,7 @@
 #include <QTableWidget>
 #include <QWidget>
 #include "about.h"
-//#include "Login.h"
+#include "Login.h"
 
 class mainwindow : public QMainWindow
 {
@@ -29,6 +29,7 @@ class mainwindow : public QMainWindow
 public:
     mainwindow(int, int, int);
     About *ab;
+    Login *logn;
     QAction *Exit;
     QAction *About_;
     QAction *actionExit;
@@ -69,11 +70,15 @@ public:
     QMenu *menuFile;
     QMenu *menuHelp;
     QStatusBar *statusbar;
-
     ~mainwindow();
 
 public slots:
+//<<<<<<< HEAD:teacherswindow.h
     void on_actionAbout_triggered();
+//=======
+    void aboutme();
+    void logout();
+//>>>>>>> connecting the logout but doesnot work:mainwindow.h
 };
 
 #endif

@@ -22,12 +22,14 @@
 #include <QWidget>
 #include "about.h"
 #include "schooldb.h"
+//#include "Login.h"
 
 
 class schoolmasterwindow : public QMainWindow
 {
      Q_OBJECT
 public:
+    //Login *log;
     schoolmasterwindow(int, int, int);
     About *ab;
     QAction *Exit;
@@ -70,13 +72,13 @@ public:
     QMenu *menuFile;
     QMenu *menuHelp;
     QStatusBar *statusbar;
-
     Schooldb *db;
     ~schoolmasterwindow();
 
 public slots:
     void on_actionAbout_triggered();
     void on_add_clicked();
+    void log_out();
 };
 
 #endif
