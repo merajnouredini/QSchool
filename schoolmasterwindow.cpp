@@ -1,4 +1,5 @@
 #include "schoolmasterwindow.h"
+#include "Login.h"
 
 void schoolmasterwindow::on_actionAbout_triggered()
 {
@@ -9,9 +10,9 @@ void schoolmasterwindow::on_actionAbout_triggered()
 
 void schoolmasterwindow::log_out()
 {
-//    log = new Login();
-//    log->show();
-//    this->close();
+    Login *login = new Login();
+    login->show();
+    this->close();
 }
 
 schoolmasterwindow::schoolmasterwindow(int a, int b, int c)

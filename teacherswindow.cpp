@@ -176,7 +176,7 @@ mainwindow::mainwindow(int a, int b, int c)
 //<<<<<<< HEAD:teacherswindow.cpp
     this->connect(actionAbout, SIGNAL(triggered()), this, SLOT(on_actionAbout_triggered()));
 //=======
-    this->connect(actionAbout, SIGNAL(triggered()), this, SLOT(aboutme()));
+    this->connect(actionAbout, SIGNAL(triggered()), this, SLOT(on_actionAbout_triggered()));
     this->connect(actionLogout, SIGNAL(triggered()), this, SLOT(logout()));
 //>>>>>>> connecting the logout but doesn't work:mainwindow.cpp
 }
