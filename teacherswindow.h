@@ -19,7 +19,7 @@
 #include <QStatusBar>
 #include <QTableWidget>
 #include <QWidget>
-#include "Login.h"
+//#include "Login.h"
 #include "about.h"
 
 class Teacherswindow: public QMainWindow

@@ -1,4 +1,5 @@
 #include "Login.h"
+#include "teacherswindow.h"
 #include <QDebug>
 
 Login::Login(QWidget *parent): QWidget(parent)
@@ -61,8 +62,8 @@ Login::~Login()
     delete username_label;
     delete password_field;
     delete password_label;
-    delete db;
-    delete mwindow;
+    delete smwindow;
+    delete twindow;
 }
 
 void Login::rejected()
@@ -77,11 +78,19 @@ void Login::accepted()
     QString password;
     username = username_field->text();
     password = password_field->text();
-    if (db->authenticate(username, password))
+    if (db->authenticate(username, password) == 'a')
     {
         qDebug() << "login successful";
-        mwindow = new schoolmasterwindow();
-        mwindow->show();
+        smwindow = new schoolmasterwindow();
+        smwindow->show();
+        this->close();
+    }
+
+    else if (db->authenticate(username, password) == 't')
+    {
+        qDebug() << "login successful";
+        twindow = new Teacherswindow();
+        twindow->show();
         this->close();
     }
 

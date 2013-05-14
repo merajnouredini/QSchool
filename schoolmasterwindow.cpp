@@ -1,5 +1,6 @@
 #include "schoolmasterwindow.h"
 #include "Login.h"
+#include <QtSql>
 
 void schoolmasterwindow::on_actionAbout_triggered()
 {
@@ -63,7 +64,7 @@ schoolmasterwindow::schoolmasterwindow()
     add->setObjectName(QStringLiteral("add"));
     gridLayout->addWidget(add, 2, 2, 1, 1);
     gridLayout_2->addWidget(groupBox_3, 3, 1, 1, 2);
-    studenttable = new QTableWidget(groupBox_2);
+    studenttable = new QTableView(groupBox_2);
     studenttable->setObjectName(QStringLiteral("studenttable"));
     gridLayout_2->addWidget(studenttable, 0, 0, 4, 1);
     stuname = new QLabel(groupBox_2);
@@ -177,6 +178,18 @@ schoolmasterwindow::schoolmasterwindow()
     this->connect(actionAbout, SIGNAL(triggered()), this, SLOT(on_actionAbout_triggered()));
     this->connect(add, SIGNAL(clicked()), this, SLOT(on_add_clicked()));
     this->connect(actionLogout, SIGNAL(triggered()), this, SLOT(log_out()));
+    this->connect(submit,SIGNAL(clicked()),this,SLOT(on_submit_clicked())
+//    this->connect(db,SIGNAL(refresh()), this, SLOT(refreshtable()));
+
+    QSqlTableModel *model = new QSqlTableModel;
+    model->setTable("student");
+    model->select();
+    studenttable->setModel(model);
+    studenttable->hideColumn(2);
+    studenttable->hideColumn(3);
+    studenttable->hideColumn(4);
+    studenttable->hideColumn(5);
+
 }
 
 void schoolmasterwindow::on_add_clicked()
@@ -186,6 +199,29 @@ void schoolmasterwindow::on_add_clicked()
     fname = stname->text();
     lname = stfamily->text();
     db->add_students(fname, lname);
+    QSqlTableModel *model = new QSqlTableModel;
+    model->setTable("student");
+    model->select();
+    studenttable->setModel(model);
+    stname->setText("");
+    stfamily->setText("");
+}
+
+void schoolmasterwindow::on_submit_clicked()
+{
+    QString name;
+    QString mored;
+    name = lineEdit->text();
+    mored = type_2->currentText();
+    db->
+}
+
+void schoolmasterwindow::refreshtable()
+{
+    QSqlTableModel *model = new QSqlTableModel;
+    model->setTable("student");
+    studenttable->setModel(model);
+    delete model;
 }
 
 schoolmasterwindow::~schoolmasterwindow()

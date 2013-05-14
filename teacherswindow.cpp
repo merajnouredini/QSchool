@@ -1,17 +1,5 @@
 #include "teacherswindow.h"
-
-void Teacherswindow::log_out()
-{
-    Login *log = new Login();
-    log->show();
-    this->close();
-}
-
-void Teacherswindow::aboutme()
-{
-    About *ab = new About();
-    ab->show();
-}
+#include "Login.h"
 
 Teacherswindow::Teacherswindow()
 {
@@ -176,6 +164,20 @@ Teacherswindow::Teacherswindow()
     menuHelp->setTitle(QApplication::translate("teacher", "Help", 0));
 
 }
+
+void Teacherswindow::log_out()
+{
+    Login *log = new Login();
+    log->show();
+    this->close();
+}
+
+void Teacherswindow::aboutme()
+{
+    About *ab = new About();
+    ab->show();
+}
+
 
 Teacherswindow::~Teacherswindow()
 {

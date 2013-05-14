@@ -79,6 +79,8 @@ public slots:
     void on_actionAbout_triggered();
     void on_add_clicked();
     void log_out();
+    void refreshtable();
+    void on_submit_clicked();
 };
 
 #endif
