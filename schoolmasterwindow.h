@@ -30,7 +30,7 @@ class schoolmasterwindow : public QMainWindow
      Q_OBJECT
 public:
     //Login *log;
-    schoolmasterwindow(int, int, int);
+    schoolmasterwindow();
     About *ab;
     QAction *Exit;
     QAction *About_;

@@ -15,7 +15,7 @@ void schoolmasterwindow::log_out()
     this->close();
 }
 
-schoolmasterwindow::schoolmasterwindow(int a, int b, int c)
+schoolmasterwindow::schoolmasterwindow()
 {
     this->resize(600, 400);
     this->setMinimumSize(QSize(600, 400));
@@ -37,12 +37,12 @@ schoolmasterwindow::schoolmasterwindow(int a, int b, int c)
     gridLayout_4->setObjectName(QStringLiteral("gridLayout_4"));
     groupBox_2 = new QGroupBox(centralwidget);
     groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
-    groupBox_2->setEnabled(a);
+    groupBox_2->setEnabled(true);
     gridLayout_2 = new QGridLayout(groupBox_2);
     gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
     groupBox_3 = new QGroupBox(groupBox_2);
     groupBox_3->setObjectName(QStringLiteral("groupBox_3"));
-    groupBox_3->setEnabled(b);
+    groupBox_3->setEnabled(true);
     gridLayout = new QGridLayout(groupBox_3);
     gridLayout->setObjectName(QStringLiteral("gridLayout"));
     te_name = new QLabel(groupBox_3);
@@ -86,7 +86,7 @@ schoolmasterwindow::schoolmasterwindow(int a, int b, int c)
     gridLayout_4->addWidget(groupBox_2, 0, 0, 1, 1);
     groupBox = new QGroupBox(centralwidget);
     groupBox->setObjectName(QStringLiteral("groupBox"));
-    groupBox->setEnabled(c);
+    groupBox->setEnabled(true);
     gridLayout_3 = new QGridLayout(groupBox);
     gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
     Teachers = new QTableView(groupBox);
@@ -135,34 +135,34 @@ schoolmasterwindow::schoolmasterwindow(int a, int b, int c)
     menuFile->addAction(actionLogout);
     menuFile->addAction(actionExit);
     menuHelp->addAction(actionAbout);
-    this->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
-    this->setStatusTip(QApplication::translate("MainWindow", "Main Window", 0));
-    Exit->setText(QApplication::translate("MainWindow", "exit", 0));
-    About_->setText(QApplication::translate("MainWindow", "about", 0));
-    actionExit->setText(QApplication::translate("MainWindow", "Exit", 0));
-    actionExit->setStatusTip(QApplication::translate("MainWindow", "Exit Aplication", 0));
-    actionExit->setShortcut(QApplication::translate("MainWindow", "Ctrl+Q", 0));
-    actionAbout->setText(QApplication::translate("MainWindow", "About", 0));
-    actionAbout->setStatusTip(QApplication::translate("MainWindow", "About Aplication", 0));
-    actionAbout->setShortcut(QApplication::translate("MainWindow", "Ctrl+A", 0));
-    actionLogout->setText(QApplication::translate("MainWindow", "Logout", 0));
-    actionLogout->setStatusTip(QApplication::translate("MainWindow", "Logout", 0));
-    actionLogout->setShortcut(QApplication::translate("MainWindow", "Ctrl+L", 0));
-    groupBox_2->setTitle(QApplication::translate("MainWindow", "Students", 0));
-    groupBox_3->setTitle(QApplication::translate("MainWindow", "Add student", 0));
-    te_name->setText(QApplication::translate("MainWindow", "Name", 0));
-    te_family->setText(QApplication::translate("MainWindow", "Family", 0));
-    add->setText(QApplication::translate("MainWindow", "Add", 0));
-    stuname->setText(QApplication::translate("MainWindow", "student name", 0));
-    type->setText(QApplication::translate("MainWindow", "type", 0));
-    submit->setText(QApplication::translate("MainWindow", "submit", 0));
-    groupBox->setTitle(QApplication::translate("MainWindow", "Teachers", 0));
-    tename->setText(QApplication::translate("MainWindow", "Name", 0));
-    tefamily->setText(QApplication::translate("MainWindow", "Family", 0));
-    access->setText(QApplication::translate("MainWindow", "Access Type", 0));
-    addteacher->setText(QApplication::translate("MainWindow", "Add", 0));
-    menuFile->setTitle(QApplication::translate("MainWindow", "File", 0));
-    menuHelp->setTitle(QApplication::translate("MainWindow", "Help", 0));
+    this->setWindowTitle("Master View");
+    this->setStatusTip("Master Window");
+    Exit->setText("exit");
+    About_->setText("about");
+    actionExit->setText("Exit");
+    actionExit->setStatusTip("Exit Aplication");
+    actionExit->setShortcut(QApplication::translate("teacher", "Ctrl+Q", 0));
+    actionAbout->setText("About");
+    actionAbout->setStatusTip("About Aplication");
+//    actionAbout->setShortcut(QApplication::translate("teacher", "Ctrl+A", 0));
+    actionLogout->setText("Logout");
+    actionLogout->setStatusTip("Logout");
+    actionLogout->setShortcut(QApplication::translate("teacher", "Ctrl+L", 0));
+    groupBox_2->setTitle("Students");
+    groupBox_3->setTitle("Add student");
+    te_name->setText("Name");
+    te_family->setText("Family");
+    add->setText("Add");
+    stuname->setText("student name");
+    type->setText("type");
+    submit->setText("submit");
+    groupBox->setTitle("Teachers");
+    tename->setText("Name");
+    tefamily->setText("Family");
+    access->setText("Access Type");
+    addteacher->setText("Add");
+    menuFile->setTitle("File");
+    menuHelp->setTitle("Help");
     db = new Schooldb;
     this->connect(actionExit, SIGNAL(triggered()), this, SLOT(close()));
     this->connect(actionAbout, SIGNAL(triggered()), this, SLOT(on_actionAbout_triggered()));

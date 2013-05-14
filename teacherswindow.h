@@ -19,9 +19,13 @@
 #include <QStatusBar>
 #include <QTableWidget>
 #include <QWidget>
+#include "Login.h"
+#include "about.h"
 
 class Teacherswindow: public QMainWindow
 {
+    Q_OBJECT
+
 public :
     Teacherswindow();
     QAction *actionLogout;
@@ -50,6 +54,9 @@ public :
     QMenu *menuHelp;
     QStatusBar *statusbar;
     ~Teacherswindow();
+public slots:
+    void log_out();
+    void aboutme();
 };
 
 #endif

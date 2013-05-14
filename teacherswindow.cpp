@@ -1,5 +1,18 @@
 #include "teacherswindow.h"
 
+void Teacherswindow::log_out()
+{
+    Login *log = new Login();
+    log->show();
+    this->close();
+}
+
+void Teacherswindow::aboutme()
+{
+    About *ab = new About();
+    ab->show();
+}
+
 Teacherswindow::Teacherswindow()
 {
     this->resize(600, 400);
@@ -150,10 +163,9 @@ Teacherswindow::Teacherswindow()
 
     this->connect(actionExit, SIGNAL(triggered()), this, SLOT(close()));
 
-    this->connect(actionAbout, SIGNAL(triggered()), this, SLOT(on_actionAbout_triggered()));
+    this->connect(actionAbout, SIGNAL(triggered()), this, SLOT(aboutme()));
 
-    this->connect(actionAbout, SIGNAL(triggered()), this, SLOT(on_actionAbout_triggered()));
-    this->connect(actionLogout, SIGNAL(triggered()), this, SLOT(logout()));
+    this->connect(actionLogout, SIGNAL(triggered()), this, SLOT(log_out()));
 
     course->setText(QApplication::translate("teacher", "\331\206\330\247\331\205 \330\257\330\261\330\263 :", 0));
     stnamelabel->setText(QApplication::translate("teacher", "\331\206\330\247\331\205 \330\257\330\247\331\206\330\264 \330\242\331\205\331\210\330\262 :", 0));

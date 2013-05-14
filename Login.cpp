@@ -80,7 +80,7 @@ void Login::accepted()
     if (db->authenticate(username, password))
     {
         qDebug() << "login successful";
-        mwindow = new schoolmasterwindow(1,1,0);
+        mwindow = new schoolmasterwindow();
         mwindow->show();
         this->close();
     }
