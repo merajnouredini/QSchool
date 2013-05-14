@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 //    mainSchool w;
 //    Login log;
-    log.show();
+//    log.show();
 //    Teacherswindow w;
     schoolmasterwindow w;
     w.show();

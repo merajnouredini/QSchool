@@ -76,6 +76,15 @@ schoolmasterwindow::schoolmasterwindow()
     type->setObjectName(QStringLiteral("type"));
     gridLayout_2->addWidget(type, 1, 1, 1, 1);
     type_2 = new QComboBox(groupBox_2);
+    type_2->clear();
+    type_2->insertItems(0, QStringList()
+     << QApplication::translate("MainWindow", "\330\252\330\247\330\256\333\214\330\261", 0)
+     << QApplication::translate("MainWindow", "\330\272\333\214\330\250\330\252", 0)
+     << QApplication::translate("MainWindow", "\330\247\330\256\330\261\330\247\330\254 \330\247\330\262 \332\251\331\204\330\247\330\263", 0)
+     << QApplication::translate("MainWindow", "\330\247\330\256\330\261\330\247\330\254 \330\247\330\262 \331\205\330\257\330\261\330\263\331\207", 0)
+     << QApplication::translate("MainWindow", "\330\257\330\261 \332\257\333\214\330\261\333\214", 0)
+     << QApplication::translate("MainWindow", "\330\242\331\210\330\261\330\257\331\206 \331\210\330\263\330\247\333\214\331\204 \331\206\330\247\331\205\330\261\330\250\331\210\330\267", 0)
+    );
     type_2->setObjectName(QStringLiteral("type_2"));
     gridLayout_2->addWidget(type_2, 1, 2, 1, 1);
     submit = new QPushButton(groupBox_2);
@@ -144,7 +153,7 @@ schoolmasterwindow::schoolmasterwindow()
     actionExit->setShortcut(QApplication::translate("teacher", "Ctrl+Q", 0));
     actionAbout->setText("About");
     actionAbout->setStatusTip("About Aplication");
-//    actionAbout->setShortcut(QApplication::translate("teacher", "Ctrl+A", 0));
+    actionAbout->setShortcut(QApplication::translate("master", "Ctrl+A", 0));
     actionLogout->setText("Logout");
     actionLogout->setStatusTip("Logout");
     actionLogout->setShortcut(QApplication::translate("teacher", "Ctrl+L", 0));
