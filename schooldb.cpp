@@ -72,17 +72,19 @@ char Schooldb::authenticate(const QString &usrname, const QString &pw)
 
 void Schooldb::add_students( QString& fname,  QString& lname)
 {
+    if (fname != "" || lname != "")
+    {
+        QSqlQuery *query = new QSqlQuery;
+        query->prepare("INSERT INTO student VALUES(:fname,:lname,'','','','')");
+        qDebug() << query->lastError();
+        query->bindValue(":fname", fname);
+        query->bindValue(":lname", lname);
+        query->exec();
+        qDebug() << query->lastError();
+        qDebug() << "Student added!";
+        delete query;
+   }
 
-    QSqlQuery *query = new QSqlQuery;
-    query->prepare("INSERT INTO student VALUES(:fname,:lname,'','','','')");
-    qDebug() << query->lastError();
-    query->bindValue(":fname", fname);
-    query->bindValue(":lname", lname);
-    query->exec();
-    qDebug() << query->lastError();
-    qDebug() << "Student added!";
-
-    delete query;
 }
 
 void Schooldb::add_mored( QString& name,  QString& mored)
