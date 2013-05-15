@@ -178,7 +178,7 @@ schoolmasterwindow::schoolmasterwindow()
     this->connect(actionAbout, SIGNAL(triggered()), this, SLOT(on_actionAbout_triggered()));
     this->connect(add, SIGNAL(clicked()), this, SLOT(on_add_clicked()));
     this->connect(actionLogout, SIGNAL(triggered()), this, SLOT(log_out()));
-    this->connect(submit,SIGNAL(clicked()),this,SLOT(on_submit_clicked())
+    this->connect(submit,SIGNAL(clicked()),this,SLOT(on_submit_clicked()));
 //    this->connect(db,SIGNAL(refresh()), this, SLOT(refreshtable()));
 
     QSqlTableModel *model = new QSqlTableModel;
@@ -209,11 +209,11 @@ void schoolmasterwindow::on_add_clicked()
 
 void schoolmasterwindow::on_submit_clicked()
 {
-    QString name;
-    QString mored;
-    name = lineEdit->text();
-    mored = type_2->currentText();
-    db->
+//    QString name;
+//    QString mored;
+//    name = lineEdit->text();
+//    mored = type_2->currentText();
+//    db->
 }
 
 void schoolmasterwindow::refreshtable()
