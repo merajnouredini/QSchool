@@ -11,7 +11,9 @@ int main(int argc, char *argv[])
     db.setDatabaseName("school.db");
     db.open();
     QApplication a(argc, argv);
-    mainSchool w;
+//    mainSchool w;
+    Login w;
+    w.show();
 
     return a.exec();
 }

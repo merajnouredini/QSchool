@@ -32,12 +32,14 @@ public:
     //Login *log;
     schoolmasterwindow();
     About *ab;
+
     QAction *Exit;
     QAction *About_;
     QAction *actionExit;
     QAction *actionAbout;
     QAction *actionLogout;
     QWidget *centralwidget;
+
     QGridLayout *gridLayout_4;
     QGroupBox *groupBox_2;
     QGridLayout *gridLayout_2;
@@ -47,7 +49,6 @@ public:
     QLineEdit *stname;
     QLabel *te_family;
     QLineEdit *stfamily;
-    QSpacerItem *horizontalSpacer_6;
     QPushButton *add;
     QTableView *studenttable;
     QLabel *stuname;
@@ -55,19 +56,23 @@ public:
     QLabel *type;
     QComboBox *type_2;
     QPushButton *submit;
-    QSpacerItem *horizontalSpacer_3;
     QGroupBox *groupBox;
-    QGridLayout *gridLayout_3;
+    QGridLayout *grid_teacher;
     QTableView *Teachers;
     QLabel *tename;
     QLineEdit *teacher_name;
-    QSpacerItem *horizontalSpacer;
     QLabel *tefamily;
     QLineEdit *treacher_family;
+
+    QSpacerItem *horizontalSpacer;
     QSpacerItem *horizontalSpacer_2;
+    QSpacerItem *horizontalSpacer_6;
+    QSpacerItem *horizontalSpacer_3;
+
     QLabel *access;
     QLineEdit *accesspass;
     QPushButton *addteacher;
+
     QMenuBar *menubar;
     QMenu *menuFile;
     QMenu *menuHelp;
