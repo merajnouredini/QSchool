@@ -91,7 +91,6 @@ void Schooldb::add_mored( QString& name,  QString& mored)
 {
     QSqlQuery *query = new QSqlQuery;
     query->exec("SELECT firstname, lastname FROM student WHERE firstname = : ");
-
 }
 
 Schooldb::~Schooldb()

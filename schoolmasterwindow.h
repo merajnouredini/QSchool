@@ -66,7 +66,7 @@ public:
     QLineEdit *treacher_family;
     QSpacerItem *horizontalSpacer_2;
     QLabel *access;
-    QComboBox *accesscombo;
+    QLineEdit *accesspass;
     QPushButton *addteacher;
     QMenuBar *menubar;
     QMenu *menuFile;

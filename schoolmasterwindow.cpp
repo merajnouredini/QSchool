@@ -121,9 +121,10 @@ schoolmasterwindow::schoolmasterwindow()
     access = new QLabel(groupBox);
     access->setObjectName(QStringLiteral("access"));
     gridLayout_3->addWidget(access, 2, 1, 1, 1);
-    accesscombo = new QComboBox(groupBox);
-    accesscombo->setObjectName(QStringLiteral("accesscombo"));
-    gridLayout_3->addWidget(accesscombo, 2, 2, 1, 1);
+    accesspass = new QLineEdit(groupBox);
+    accesspass->setEchoMode(QLineEdit::Password);
+    accesspass->setObjectName(QStringLiteral("accesspass"));
+    gridLayout_3->addWidget(accesspass, 2, 2, 1, 1);
     addteacher = new QPushButton(groupBox);
     addteacher->setObjectName(QStringLiteral("addteacher"));
     gridLayout_3->addWidget(addteacher, 2, 3, 1, 1);
@@ -169,7 +170,7 @@ schoolmasterwindow::schoolmasterwindow()
     groupBox->setTitle("Teachers");
     tename->setText("Name");
     tefamily->setText("Family");
-    access->setText("Access Type");
+    access->setText("Password");
     addteacher->setText("Add");
     menuFile->setTitle("File");
     menuHelp->setTitle("Help");
@@ -262,7 +263,7 @@ schoolmasterwindow::~schoolmasterwindow()
     delete treacher_family;
     delete horizontalSpacer_2;
     delete access;
-    delete accesscombo;
+    delete accesspass;
     delete addteacher;
     delete menubar;
     delete menuFile;
