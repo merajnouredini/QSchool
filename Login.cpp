@@ -43,6 +43,7 @@ Login::Login(QWidget *parent): QWidget(parent)
     submit->setObjectName(QStringLiteral("submit"));
     submit->setMinimumSize(QSize(141, 23));
     submit->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
+
     connect(submit, SIGNAL(accepted()), this, SLOT(accepted()));
     connect(submit, SIGNAL(rejected()), this, SLOT(rejected()));
 

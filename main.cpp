@@ -1,7 +1,6 @@
-#include "mainschool.h"
 #include "Login.h"
-#include "teacherswindow.h"
-#include "schoolmasterwindow.h"
+//#include "teacherswindow.h"
+//#include "schoolmasterwindow.h"
 #include <QApplication>
 #include <QtSql>
 

@@ -16,13 +16,11 @@ SOURCES += main.cpp\
     about.cpp \
     schooldb.cpp \
     Login.cpp \
-    mainschool.cpp \
     teacherswindow.cpp \
     schoolmasterwindow.cpp
 
 HEADERS  += about.h \
     schooldb.h \
     Login.h \
-    mainschool.h \
     teacherswindow.h \
     schoolmasterwindow.h
