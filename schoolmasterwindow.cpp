@@ -2,20 +2,6 @@
 #include "Login.h"
 #include <QtSql>
 
-void schoolmasterwindow::on_actionAbout_triggered()
-{
-    qDebug("Kuft");
-    ab = new About();
-    ab->show();
-}
-
-void schoolmasterwindow::log_out()
-{
-    Login *login = new Login();
-    login->show();
-    this->close();
-}
-
 schoolmasterwindow::schoolmasterwindow()
 {
     //initialize the window
@@ -230,6 +216,20 @@ void schoolmasterwindow::refreshtable()
     model->setTable("student");
     studenttable->setModel(model);
     delete model;
+}
+
+void schoolmasterwindow::on_actionAbout_triggered()
+{
+    qDebug("Kuft");
+    ab = new About();
+    ab->show();
+}
+
+void schoolmasterwindow::log_out()
+{
+    Login *login = new Login();
+    login->show();
+    this->close();
 }
 
 schoolmasterwindow::~schoolmasterwindow()
