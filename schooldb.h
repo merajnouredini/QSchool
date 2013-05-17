@@ -10,7 +10,8 @@ public:
     Schooldb();
     void add_user();
     char authenticate(const QString&, const QString&);
-    void add_students(QString&, QString&);
+    void add_students(QString&);
+    void add_teachers(QString&, QString&);
     void add_mored(QString&, QString&);
     ~Schooldb();
 

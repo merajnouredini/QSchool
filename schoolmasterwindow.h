@@ -20,6 +20,7 @@
 #include <QTableView>
 #include <QTableWidget>
 #include <QWidget>
+#include <QtSql>
 #include "about.h"
 #include "schooldb.h"
 //#include "Login.h"
@@ -48,7 +49,6 @@ public:
     QLabel *te_name;
     QLineEdit *stname;
     QLabel *te_family;
-    QLineEdit *stfamily;
     QPushButton *add;
     QTableView *studenttable;
     QLabel *stuname;
@@ -78,6 +78,7 @@ public:
     QMenu *menuHelp;
     QStatusBar *statusbar;
     Schooldb *db;
+    QSqlTableModel *model;
     ~schoolmasterwindow();
 
 public slots:
@@ -86,6 +87,7 @@ public slots:
     void log_out();
     void refreshtable();
     void on_submit_clicked();
+    void stu_autofill();
 };
 
 #endif

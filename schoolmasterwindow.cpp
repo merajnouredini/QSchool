@@ -78,12 +78,6 @@ schoolmasterwindow::schoolmasterwindow()
     stname = new QLineEdit(groupBox_3);
     gridLayout->addWidget(stname, 0, 1, 1, 2);
 
-    te_family = new QLabel(groupBox_3);
-    te_family->setText("Family");
-    gridLayout->addWidget(te_family, 1, 0, 1, 1);
-
-    stfamily = new QLineEdit(groupBox_3);
-    gridLayout->addWidget(stfamily, 1, 1, 1, 2);
 
     horizontalSpacer_6 = new QSpacerItem(188, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
     gridLayout->addItem(horizontalSpacer_6, 2, 0, 1, 2);
@@ -110,7 +104,7 @@ schoolmasterwindow::schoolmasterwindow()
 
     type_2 = new QComboBox(groupBox_2);
     type_2->clear();
-    type_2->insertItems(0, QStringList()<< "تاخیر" << "غیبت" << "اخراج از کلاس" << "در گیری" << "آوردن وسایل نامربوط");
+    type_2->insertItems(0, QStringList()<< "تاخیر" << "غیبت" << "اخراج از کلاس" << "در گیری");
     gridLayout_2->addWidget(type_2, 1, 2, 1, 1);
 
     submit = new QPushButton(groupBox_2);
@@ -140,23 +134,17 @@ schoolmasterwindow::schoolmasterwindow()
     horizontalSpacer = new QSpacerItem(112, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
     grid_teacher->addItem(horizontalSpacer, 0, 3, 1, 1);
 
-    tefamily = new QLabel(groupBox);
-    tefamily->setText("Family");
-    grid_teacher->addWidget(tefamily, 1, 1, 1, 1);
-
-    treacher_family = new QLineEdit(groupBox);
-    grid_teacher->addWidget(treacher_family, 1, 2, 1, 1);
 
     horizontalSpacer_2 = new QSpacerItem(112, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
     grid_teacher->addItem(horizontalSpacer_2, 1, 3, 1, 1);
 
     access = new QLabel(groupBox);
     access->setText("Password");
-    grid_teacher->addWidget(access, 2, 1, 1, 1);
+    grid_teacher->addWidget(access, 1, 1, 1, 1);
 
     accesspass = new QLineEdit(groupBox);
     accesspass->setEchoMode(QLineEdit::Password);
-    grid_teacher->addWidget(accesspass, 2, 2, 1, 1);
+    grid_teacher->addWidget(accesspass, 1, 2, 1, 1);
 
     addteacher = new QPushButton(groupBox);
     addteacher->setText("افزودن");
@@ -167,55 +155,57 @@ schoolmasterwindow::schoolmasterwindow()
 
     db = new Schooldb;
 
+    model = new QSqlTableModel;
+
     //connecting actions and buttons
     this->connect(actionExit, SIGNAL(triggered()), this, SLOT(close()));
     this->connect(actionAbout, SIGNAL(triggered()), this, SLOT(on_actionAbout_triggered()));
     this->connect(add, SIGNAL(clicked()), this, SLOT(on_add_clicked()));
     this->connect(actionLogout, SIGNAL(triggered()), this, SLOT(log_out()));
     this->connect(submit,SIGNAL(clicked()),this,SLOT(on_submit_clicked()));
-//    this->connect(db,SIGNAL(refresh()), this, SLOT(refreshtable()));
+    this->connect(studenttable, SIGNAL(clicked(QModelIndex)), this, SLOT(stu_autofill()));
+
 
     QSqlTableModel *model = new QSqlTableModel;
     model->setTable("student");
     model->select();
     studenttable->setModel(model);
+    studenttable->hideColumn(1);
     studenttable->hideColumn(2);
     studenttable->hideColumn(3);
     studenttable->hideColumn(4);
-    studenttable->hideColumn(5);
+
 
 }
 
 void schoolmasterwindow::on_add_clicked()
 {
-    QString fname;
-    QString lname;
-    fname = stname->text();
-    lname = stfamily->text();
-    db->add_students(fname, lname);
-    QSqlTableModel *model = new QSqlTableModel;
+    QString name;
+    name = stname->text();
+    db->add_students(name);
     model->setTable("student");
     model->select();
     studenttable->setModel(model);
     stname->setText("");
-    stfamily->setText("");
 }
 
 void schoolmasterwindow::on_submit_clicked()
 {
-//    QString name;
-//    QString mored;
-//    name = lineEdit->text();
-//    mored = type_2->currentText();
-//    db->
+    QString name;
+    QString mored;
+    name = lineEdit->text();
+    mored = type_2->currentText();
+    db->add_mored(name, mored);
+    model->select();
+    studenttable->setModel(model);
+    lineEdit->setText("");
 }
 
 void schoolmasterwindow::refreshtable()
 {
-    QSqlTableModel *model = new QSqlTableModel;
     model->setTable("student");
+    model->select();
     studenttable->setModel(model);
-    delete model;
 }
 
 void schoolmasterwindow::on_actionAbout_triggered()
@@ -232,9 +222,17 @@ void schoolmasterwindow::log_out()
     this->close();
 }
 
+void schoolmasterwindow::stu_autofill()
+{
+    QModelIndex index = studenttable->currentIndex();
+    QString str = index.data().toString();
+    lineEdit->setText(str);
+}
+
 schoolmasterwindow::~schoolmasterwindow()
 {
     delete db;
+    delete model;
     delete ab;
     delete Exit;
     delete About_;
@@ -250,7 +248,6 @@ schoolmasterwindow::~schoolmasterwindow()
     delete te_name;
     delete stname;
     delete te_family;
-    delete stfamily;
     delete horizontalSpacer_6;
     delete add;
     delete studenttable;
