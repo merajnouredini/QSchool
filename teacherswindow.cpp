@@ -30,19 +30,18 @@ Teacherswindow::Teacherswindow()
     actionAbout->setWhatsThis("Press to know something about program");
     actionAbout->setShortcut(QApplication::translate("teacher", "Ctrl+A", 0));
 
-    menuHelp = new QMenu(menubar);
-    menuHelp->addAction(actionAbout);
-    menuHelp->setTitle("Help");
-
+    menubar = new QMenuBar(this);
+    menubar->setGeometry(QRect(0, 0, 600, 21));
 
     menuFile = new QMenu(menubar);
     menuFile->addAction(actionLogout);
     menuFile->addAction(actionExit);
     menuFile->setTitle("File");
-
-    menubar = new QMenuBar(this);
-    menubar->setGeometry(QRect(0, 0, 600, 21));
     menubar->addAction(menuFile->menuAction());
+
+    menuHelp = new QMenu(menubar);
+    menuHelp->addAction(actionAbout);
+    menuHelp->setTitle("Help");
     menubar->addAction(menuHelp->menuAction());
 
     statusbar = new QStatusBar(this);
