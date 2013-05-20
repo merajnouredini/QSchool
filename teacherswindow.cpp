@@ -63,15 +63,12 @@ Teacherswindow::Teacherswindow()
     studenttable = new QTableWidget(Teachergroupbox);
     gridLayout_2->addWidget(studenttable, 1, 0, 1, 7);
 
-    horizontalSpacer_3 = new QSpacerItem(77, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-    gridLayout_2->addItem(horizontalSpacer_3, 2, 0, 1, 1);
-
     comboBox = new QComboBox(Teachergroupbox);
-    gridLayout_2->addWidget(comboBox, 2, 1, 1, 1);
+    gridLayout_2->addWidget(comboBox, 2, 0, 1, 2);
 
     course = new QLabel(Teachergroupbox);
     course->setText("نام درس:");
-    gridLayout_2->addWidget(course, 2, 2, 1, 2);
+    gridLayout_2->addWidget(course, 2, 3, 1, 1);
 
     stname = new QLineEdit(Teachergroupbox);
     stname->setObjectName(QStringLiteral("stname"));
@@ -84,21 +81,14 @@ Teacherswindow::Teacherswindow()
 
     submit = new QPushButton(Teachergroupbox);
     submit->setText("اعمال تغییرات");
-    gridLayout_2->addWidget(submit, 3, 0, 1, 1);
+    gridLayout_2->addWidget(submit, 3, 0, 1, 2);
 
     course_2 = new QLineEdit(Teachergroupbox);
-    gridLayout_2->addWidget(course_2, 3, 1, 1, 1);
+    gridLayout_2->addWidget(course_2,  3, 4, 1, 2);
 
     scorelabel = new QLabel(Teachergroupbox);
     scorelabel->setText("نمره:");
-    gridLayout_2->addWidget(scorelabel, 3, 3, 1, 1);
-
-    stfamily = new QLineEdit(Teachergroupbox);
-    gridLayout_2->addWidget(stfamily, 3, 4, 1, 2);
-
-    stfamilylabel = new QLabel(Teachergroupbox);
-    stfamilylabel->setText("نام خانوادگی دانش آموز:");
-    gridLayout_2->addWidget(stfamilylabel, 3, 6, 1, 1);
+    gridLayout_2->addWidget(scorelabel, 3, 6, 1, 1);
 
     gridLayout->addWidget(Teachergroupbox, 0, 0, 1, 1);
 
@@ -140,7 +130,6 @@ Teacherswindow::~Teacherswindow()
     delete stlabel;
     delete horizontalSpacer_2;
     delete studenttable;
-    delete horizontalSpacer_3;
     delete comboBox;
     delete course;
     delete stname;
@@ -148,8 +137,6 @@ Teacherswindow::~Teacherswindow()
     delete submit;
     delete course_2;
     delete scorelabel;
-    delete stfamily;
-    delete stfamilylabel;
     delete menubar;
     delete menuFile;
     delete menuHelp;

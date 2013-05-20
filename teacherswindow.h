@@ -39,7 +39,6 @@ public :
     QLabel *stlabel;
     QSpacerItem *horizontalSpacer_2;
     QTableWidget *studenttable;
-    QSpacerItem *horizontalSpacer_3;
     QComboBox *comboBox;
     QLabel *course;
     QLineEdit *stname;
@@ -47,8 +46,6 @@ public :
     QPushButton *submit;
     QLineEdit *course_2;
     QLabel *scorelabel;
-    QLineEdit *stfamily;
-    QLabel *stfamilylabel;
     QMenuBar *menubar;
     QMenu *menuFile;
     QMenu *menuHelp;
