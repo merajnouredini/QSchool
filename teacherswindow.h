@@ -19,7 +19,7 @@
 #include <QStatusBar>
 #include <QTableWidget>
 #include <QWidget>
-//#include "Login.h"
+#include <QtSql>
 #include "about.h"
 
 class Teacherswindow: public QMainWindow
@@ -38,7 +38,7 @@ public :
     QSpacerItem *horizontalSpacer;
     QLabel *stlabel;
     QSpacerItem *horizontalSpacer_2;
-    QTableWidget *studenttable;
+    QTableView *studenttable;
     QComboBox *comboBox;
     QLabel *course;
     QLineEdit *stname;
@@ -50,6 +50,7 @@ public :
     QMenu *menuFile;
     QMenu *menuHelp;
     QStatusBar *statusbar;
+    QSqlTableModel *model;
     ~Teacherswindow();
 public slots:
     void log_out();

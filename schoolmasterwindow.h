@@ -79,11 +79,13 @@ public:
     QStatusBar *statusbar;
     Schooldb *db;
     QSqlTableModel *model;
+    QSqlTableModel *model2;
     ~schoolmasterwindow();
 
 public slots:
     void on_actionAbout_triggered();
     void on_add_clicked();
+    void on_addteacher_clicked();
     void log_out();
     void refreshtable();
     void on_submit_clicked();

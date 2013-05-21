@@ -88,7 +88,7 @@ void Schooldb::add_students(QString& name)
 
 void Schooldb::add_teachers(QString& fname, QString& pass)
 {
-    if (fname != "")
+    if (fname != "" || pass !="")
     {
         QSqlQuery *query = new QSqlQuery;
         query->prepare("INSERT INTO teacher VALUES(:fname,:pass)");
@@ -106,7 +106,7 @@ void Schooldb::add_mored( QString& gname,  QString& mored)
 {
     QSqlQuery *query = new QSqlQuery;
     query->prepare("UPDATE student SET mored = :mored WHERE name = :gname ");
-    query->bindValue("mored", mored);
+    query->bindValue(":mored", mored);
     qDebug() << "1"<<query->lastError();
     query->bindValue(":gname", gname);
     qDebug() << "2"<<query->lastError();

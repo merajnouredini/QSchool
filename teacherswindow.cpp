@@ -3,6 +3,7 @@
 
 Teacherswindow::Teacherswindow()
 {
+
     this->resize(600, 400);
     this->setMaximumSize(QSize(600, 400));
     this->setStatusTip("Teacher Window");
@@ -60,7 +61,7 @@ Teacherswindow::Teacherswindow()
     horizontalSpacer_2 = new QSpacerItem(238, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
     gridLayout_2->addItem(horizontalSpacer_2, 0, 5, 1, 2);
 
-    studenttable = new QTableWidget(Teachergroupbox);
+    studenttable = new QTableView(Teachergroupbox);
     gridLayout_2->addWidget(studenttable, 1, 0, 1, 7);
 
     comboBox = new QComboBox(Teachergroupbox);
@@ -95,13 +96,24 @@ Teacherswindow::Teacherswindow()
     Teachergroupbox->setTitle("Teacher's Panel");
     stlabel->setText("Table of Students");
     comboBox->clear();
-    comboBox->insertItems(0, QStringList() << "ریاضی" << "فیزیک" << "شیمی" << "معارف" << "فارسی" << "معادلات" << "کوفت" );
+    comboBox->insertItems(0, QStringList() << "ریاضی" << "فیزیک" << "شیمی" );
+
+    model = new QSqlTableModel;
 
     this->connect(actionExit, SIGNAL(triggered()), this, SLOT(close()));
     this->connect(actionAbout, SIGNAL(triggered()), this, SLOT(aboutme()));
     this->connect(actionLogout, SIGNAL(triggered()), this, SLOT(log_out()));
     this->connect(actionExit, SIGNAL(triggered()), this, SLOT(close()));
 
+    model->setTable("student");
+    model->setHeaderData(0,Qt::Horizontal, QObject::tr("نام و نام خانوادگی"));
+    model->setHeaderData(1,Qt::Horizontal, QObject::tr("ریاضی"));
+    model->setHeaderData(2,Qt::Horizontal, QObject::tr("فیزیک"));
+    model->setHeaderData(3,Qt::Horizontal, QObject::tr("شیمی"));
+    model->setHeaderData(4,Qt::Horizontal, QObject::tr("معدل"));
+    model->setHeaderData(5,Qt::Horizontal, QObject::tr("مورد انضباطی"));
+    model->select();
+    studenttable->setModel(model);
 }
 
 void Teacherswindow::log_out()
@@ -141,4 +153,5 @@ Teacherswindow::~Teacherswindow()
     delete menuFile;
     delete menuHelp;
     delete statusbar;
+    delete model;
 }

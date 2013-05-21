@@ -156,6 +156,7 @@ schoolmasterwindow::schoolmasterwindow()
     db = new Schooldb;
 
     model = new QSqlTableModel;
+    model2 = new QSqlTableModel;
 
     //connecting actions and buttons
     this->connect(actionExit, SIGNAL(triggered()), this, SLOT(close()));
@@ -164,9 +165,8 @@ schoolmasterwindow::schoolmasterwindow()
     this->connect(actionLogout, SIGNAL(triggered()), this, SLOT(log_out()));
     this->connect(submit,SIGNAL(clicked()),this,SLOT(on_submit_clicked()));
     this->connect(studenttable, SIGNAL(clicked(QModelIndex)), this, SLOT(stu_autofill()));
+    this->connect(addteacher, SIGNAL(clicked()), this, SLOT(on_addteacher_clicked()));
 
-
-    QSqlTableModel *model = new QSqlTableModel;
     model->setTable("student");
     model->select();
     studenttable->setModel(model);
@@ -174,6 +174,10 @@ schoolmasterwindow::schoolmasterwindow()
     studenttable->hideColumn(2);
     studenttable->hideColumn(3);
     studenttable->hideColumn(4);
+
+    model2->setTable("teacher");
+    model2->select();
+    Teachers->setModel(model2);
 
 
 }
@@ -196,6 +200,7 @@ void schoolmasterwindow::on_submit_clicked()
     name = lineEdit->text();
     mored = type_2->currentText();
     db->add_mored(name, mored);
+    model->setTable("student");
     model->select();
     studenttable->setModel(model);
     lineEdit->setText("");
@@ -227,6 +232,21 @@ void schoolmasterwindow::stu_autofill()
     QModelIndex index = studenttable->currentIndex();
     QString str = index.data().toString();
     lineEdit->setText(str);
+}
+
+void schoolmasterwindow::on_addteacher_clicked()
+{
+    QString name;
+    QString pass;
+    name = teacher_name->text();
+    pass = accesspass->text();
+    qDebug() << pass;
+    db->add_teachers(name, pass);
+    model2->setTable("teacher");
+    model2->select();
+    Teachers->setModel(model2);
+    teacher_name->setText("");
+    accesspass->setText("");
 }
 
 schoolmasterwindow::~schoolmasterwindow()
