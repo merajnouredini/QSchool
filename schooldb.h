@@ -13,6 +13,7 @@ public:
     void add_students(QString&);
     void add_teachers(QString&, QString&);
     void add_mored(QString&, QString&);
+    void add_grade(QString&, int, QString&);
     ~Schooldb();
 
 };

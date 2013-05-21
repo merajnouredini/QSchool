@@ -190,7 +190,7 @@ void schoolmasterwindow::on_add_clicked()
     model->setTable("student");
     model->select();
     studenttable->setModel(model);
-    stname->setText("");
+    stname->clear();
 }
 
 void schoolmasterwindow::on_submit_clicked()
@@ -203,7 +203,7 @@ void schoolmasterwindow::on_submit_clicked()
     model->setTable("student");
     model->select();
     studenttable->setModel(model);
-    lineEdit->setText("");
+    lineEdit->clear();
 }
 
 void schoolmasterwindow::refreshtable()
@@ -245,8 +245,8 @@ void schoolmasterwindow::on_addteacher_clicked()
     model2->setTable("teacher");
     model2->select();
     Teachers->setModel(model2);
-    teacher_name->setText("");
-    accesspass->setText("");
+    teacher_name->clear();
+    accesspass->clear();
 }
 
 schoolmasterwindow::~schoolmasterwindow()

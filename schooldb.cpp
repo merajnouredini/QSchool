@@ -115,6 +115,41 @@ void Schooldb::add_mored( QString& gname,  QString& mored)
     delete query;
 }
 
+void Schooldb::add_grade(QString& name, int course, QString& grade)
+{
+    QSqlQuery *query = new QSqlQuery;
+
+    qDebug()<< course;
+    switch(course)
+    {
+    case 0:{
+        query->prepare("UPDATE student SET course1 = :grade WHERE name = :name ");
+        query->bindValue(":grade", grade);
+        query->bindValue(":name", name);
+        query->exec();
+        break;
+    }
+    case 1:{
+        query->prepare("UPDATE student SET course2 = :grade WHERE name = :name ");
+        query->bindValue(":grade", grade);
+        query->bindValue(":name", name);
+        query->exec();
+        break;
+    }
+    case 2:{
+        query->prepare("UPDATE student SET course3 = :grade WHERE name = :name ");
+        query->bindValue(":grade", grade);
+        query->bindValue(":name", name);
+        query->exec();
+        break;
+    }
+    default:
+        qDebug()<<"wrong course";
+        break;
+    }
+    delete query;
+}
+
 Schooldb::~Schooldb()
 {
 }

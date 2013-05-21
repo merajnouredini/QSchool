@@ -21,6 +21,7 @@
 #include <QWidget>
 #include <QtSql>
 #include "about.h"
+#include "schooldb.h"
 
 class Teacherswindow: public QMainWindow
 {
@@ -51,10 +52,12 @@ public :
     QMenu *menuHelp;
     QStatusBar *statusbar;
     QSqlTableModel *model;
+    Schooldb *db;
     ~Teacherswindow();
 public slots:
     void log_out();
     void aboutme();
+    void on_submit_clicked();
 };
 
 #endif

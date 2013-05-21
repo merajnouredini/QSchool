@@ -98,12 +98,14 @@ Teacherswindow::Teacherswindow()
     comboBox->clear();
     comboBox->insertItems(0, QStringList() << "ریاضی" << "فیزیک" << "شیمی" );
 
+    db = new Schooldb;
     model = new QSqlTableModel;
 
     this->connect(actionExit, SIGNAL(triggered()), this, SLOT(close()));
     this->connect(actionAbout, SIGNAL(triggered()), this, SLOT(aboutme()));
     this->connect(actionLogout, SIGNAL(triggered()), this, SLOT(log_out()));
     this->connect(actionExit, SIGNAL(triggered()), this, SLOT(close()));
+    this->connect(submit, SIGNAL(clicked()), this, SLOT(on_submit_clicked()));
 
     model->setTable("student");
     model->setHeaderData(0,Qt::Horizontal, QObject::tr("نام و نام خانوادگی"));
@@ -127,6 +129,21 @@ void Teacherswindow::aboutme()
 {
     About *ab = new About();
     ab->show();
+}
+
+void Teacherswindow::on_submit_clicked()
+{
+    QString name;
+    QString grade;
+    int course;
+    name = stname->text();
+    grade = course_2->text();
+    course = comboBox->currentIndex();
+    db->add_grade(name, course, grade);
+    model->select();
+    studenttable->setModel(model);
+    stname->clear();
+    course_2->clear();
 }
 
 Teacherswindow::~Teacherswindow()
@@ -154,4 +171,5 @@ Teacherswindow::~Teacherswindow()
     delete menuHelp;
     delete statusbar;
     delete model;
+    delete db;
 }
