@@ -89,6 +89,7 @@ schoolmasterwindow::schoolmasterwindow()
     gridLayout_2->addWidget(groupBox_3, 3, 1, 1, 2);
 
     studenttable = new QTableView(groupBox_2);
+    studenttable->setEditTriggers(QAbstractItemView::NoEditTriggers);
     gridLayout_2->addWidget(studenttable, 0, 0, 4, 1);
 
     stuname = new QLabel(groupBox_2);
@@ -122,6 +123,7 @@ schoolmasterwindow::schoolmasterwindow()
     grid_teacher = new QGridLayout(groupBox);
 
     Teachers = new QTableView(groupBox);
+    Teachers->setEditTriggers(QAbstractItemView::NoEditTriggers);
     grid_teacher->addWidget(Teachers, 0, 0, 3, 1);
 
     tename = new QLabel(groupBox);

@@ -62,6 +62,7 @@ Teacherswindow::Teacherswindow()
     gridLayout_2->addItem(horizontalSpacer_2, 0, 5, 1, 2);
 
     studenttable = new QTableView(Teachergroupbox);
+    studenttable->setEditTriggers(QAbstractItemView::NoEditTriggers);
     gridLayout_2->addWidget(studenttable, 1, 0, 1, 7);
 
     comboBox = new QComboBox(Teachergroupbox);
